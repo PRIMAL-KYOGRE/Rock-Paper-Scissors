@@ -1,0 +1,173 @@
+package javaapplication6;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.Scanner;
+
+/**
+ *
+ * @author aditya
+ */
+public class JavaApplication6 {
+
+    /**
+     * @param args the command line arguments
+     */
+    static final String SCISSORS = "Scissors";
+    static final String PAPER = "Paper";
+    static final String ROCK = "Rock";
+    static int HUMAN_SCORE = 0;
+    static int COMPUTER_SCORE = 0;
+
+    public static void main(String[] args) {
+        Scanner thing = new Scanner(System.in);
+        Scanner myScanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Please enter the password:");
+        String password = thing.next();
+        if (password.equals("94DELEATER")) {
+            System.out.println(
+                      "───▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄───\n"
+                    + "───█▒▒░░░░░░░░░▒▒█───\n"
+                    + "────█░░█░░░░░█░░█────\n"
+                    + "─▄▄──█░░░▀█▀░░░█──▄▄─\n"
+                    + "█░░█─▀▄░░░░░░░▄▀─█░░█\n"
+                    + "█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█\n"
+                    + "█░░╦─╦╔╗╦─╔╗╔╗╔╦╗╔╗░░█\n"
+                    + "█░░║║║╠─║─║─║║║║║╠─░░█\n"
+                    + "█░░╚╩╝╚╝╚╝╚╝╚╝╩─╩╚╝░░█\n"
+                    + "█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█");
+            System.out.println("What is the winning score?");
+            int i = sc.nextInt();
+
+            while (HUMAN_SCORE < i && COMPUTER_SCORE < i) {
+                String game = new String[]{ROCK, PAPER, SCISSORS}[(int) (Math.random() * 3)];
+                System.out.print("Enter your choice (Rock, Paper, or Scissors): ");
+                String choice = myScanner.next();
+
+                switch (choice) {
+                    case SCISSORS:
+                        System.out.println("I choose scissors");
+                        System.out.println(" _______\n" +
+"---'   ____)____\n" +
+"          ______)\n" +
+"       __________)\n" +
+"      (____)\n" +
+"---.__(___)");
+                        break;
+                    case PAPER:
+                        System.out.println("I choose paper");
+                        System.out.println("     _______\n" +
+"---'    ____)____\n" +
+"           ______)\n" +
+"          _______)\n" +
+"         _______)\n" +
+"---.__________)");
+
+                        break;
+                    case ROCK:
+                        System.out.println("I chose rock");
+                        System.out.println("    _______\n" +
+"---'   ____)\n" +
+"      (_____)\n" +
+"      (_____)\n" +
+"      (____)\n" +
+"---.__(___)");
+                        break;
+                }
+                switch (game) {
+                    case SCISSORS:
+                        System.out.println("Computer chooses scissors");
+                        System.out.println(" _______\n" +
+"    _______\n" +
+"---'   ____)____\n" +
+"          ______)\n" +
+"       __________)\n" +
+"      (____)\n" +
+"---.__(___)");
+                        break;
+                    case PAPER:
+                        System.out.println("Computer chooses paper");
+                        System.out.println("     _______\n" +
+"---'    ____)____\n" +
+"           ______)\n" +
+"          _______)\n" +
+"         _______)\n" +
+"---.__________)");
+                        break;
+                    case ROCK:
+                        System.out.println("Computer chooses rock");
+                        System.out.println("    _______\n" +
+"---'   ____)\n" +
+"      (_____)\n" +
+"      (_____)\n" +
+"      (____)\n" +
+"---.__(___)");
+                        break;
+
+                }
+                switch (choice) {
+                    case SCISSORS:
+                        switch (game) {
+                            case SCISSORS:
+                                System.out.println("Tie!");
+                                break;
+                            case PAPER:
+                                System.out.println("You Win!");
+                                HUMAN_SCORE = HUMAN_SCORE + 1;
+                                break;
+                            case ROCK:
+                                System.out.println("You Lose!");
+                                COMPUTER_SCORE = COMPUTER_SCORE + 1;
+                                break;
+
+                        }
+                        break;
+                    case PAPER:
+                        switch (game) {
+                            case SCISSORS:
+                                System.out.println("You Lose!");
+                                COMPUTER_SCORE = COMPUTER_SCORE + 1;
+
+                                break;
+                            case PAPER:
+                                System.out.println("Tie!");
+                                break;
+                            case ROCK:
+                                System.out.println("You Win!");
+                                HUMAN_SCORE = HUMAN_SCORE + 1;
+
+                                break;
+                        }
+                        break;
+                    case ROCK:
+                        switch (game) {
+                            case SCISSORS:
+                                System.out.println("You Win!");
+                                HUMAN_SCORE = HUMAN_SCORE + 1;
+
+                                break;
+                            case PAPER:
+                                System.out.println("You Lose!");
+                                COMPUTER_SCORE = COMPUTER_SCORE + 1;
+
+                                break;
+                            case ROCK:
+                                System.out.println("Tie!");
+                                break;
+                        }
+                        break;
+
+                }
+                System.out.println("You: " + HUMAN_SCORE + " Computer: " + COMPUTER_SCORE);
+
+            }
+
+        } else {
+            System.out.println("WRONG PASSWORD");
+        }
+    }
+}
